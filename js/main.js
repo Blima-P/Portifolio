@@ -84,11 +84,13 @@ if (contactForm) {
     const submitBtn = contactForm.querySelector('button[type="submit"]');
     const originalText = submitBtn.textContent;
 
-    submitBtn.textContent = 'Enviando...';
+    submitBtn.textContent = (typeof translations !== 'undefined' && translations[currentLang])
+      ? translations[currentLang]['contact.form.sending'] : 'Sending...';
     submitBtn.disabled = true;
 
     setTimeout(() => {
-      submitBtn.textContent = '✓ Mensagem enviada!';
+      submitBtn.textContent = (typeof translations !== 'undefined' && translations[currentLang])
+        ? translations[currentLang]['contact.form.sent'] : '✓ Message sent!';
       submitBtn.style.background = '#22c55e';
       contactForm.reset();
 

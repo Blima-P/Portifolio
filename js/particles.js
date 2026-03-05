@@ -1,3 +1,5 @@
+//particulas do inicio
+
 const canvas = document.getElementById('particles-canvas');
 const ctx = canvas.getContext('2d');
 
@@ -87,3 +89,7 @@ window.addEventListener('resize', () => {
   resizeCanvas();
   initParticles();
 });
+
+function updateParticlesColor(rgb) {
+  CONFIG.color = rgb;
+}

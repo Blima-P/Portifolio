@@ -1,9 +1,21 @@
-const typingTexts = [
-  'Desenvolvedor Fullstack',
-  'Estudante de Eng. de Software',
-  'Estagiário na CAESB',
-  'Apaixonado por tecnologia 🚀',
-];
+// escrita animada no inicio
+
+const typingTextsMap = {
+  en: [
+    'Fullstack Developer',
+    'Software Eng. Student',
+    'Intern at CAESB',
+    'Passionate about tech',
+  ],
+  'pt-br': [
+    'Desenvolvedor Fullstack',
+    'Estudante de Eng. de Software',
+    'Estagiário na CAESB',
+    'Apaixonado por tecnologia 🚀',
+  ],
+};
+
+let typingTexts = typingTextsMap[localStorage.getItem('lang') || 'en'];
 
 const TYPING_SPEED         = 80;
 const ERASING_SPEED        = 40;
@@ -12,6 +24,7 @@ const PAUSE_BEFORE_NEXT    = 400;
 
 let textIndex = 0;
 let charIndex = 0;
+let typingTimeout = null;
 
 const typingEl = document.getElementById('typing-text');
 
@@ -19,21 +32,31 @@ function typeText() {
   if (charIndex < typingTexts[textIndex].length) {
     typingEl.innerHTML += typingTexts[textIndex].charAt(charIndex);
     charIndex++;
-    setTimeout(typeText, TYPING_SPEED);
+    typingTimeout = setTimeout(typeText, TYPING_SPEED);
   } else {
-    setTimeout(eraseText, PAUSE_AFTER_TYPING);
+    typingTimeout = setTimeout(eraseText, PAUSE_AFTER_TYPING);
   }
 }
 
 function eraseText() {
   if (typingEl.innerHTML.length > 0) {
     typingEl.innerHTML = typingEl.innerHTML.slice(0, -1);
-    setTimeout(eraseText, ERASING_SPEED);
+    typingTimeout = setTimeout(eraseText, ERASING_SPEED);
   } else {
     textIndex = (textIndex + 1) % typingTexts.length;
     charIndex = 0;
-    setTimeout(typeText, PAUSE_BEFORE_NEXT);
+    typingTimeout = setTimeout(typeText, PAUSE_BEFORE_NEXT);
   }
 }
 
-setTimeout(typeText, 500);
+// função updatetypinglanguage só é chamada quando tem a alteração de linguagem
+function updateTypingLanguage(lang) {
+  clearTimeout(typingTimeout);
+  typingTexts = typingTextsMap[lang] || typingTextsMap['en'];
+  textIndex = 0;
+  charIndex = 0;
+  typingEl.innerHTML = '';
+  typingTimeout = setTimeout(typeText, PAUSE_BEFORE_NEXT);
+}
+
+typingTimeout = setTimeout(typeText, 500);
