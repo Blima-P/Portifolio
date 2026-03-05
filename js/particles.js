@@ -4,13 +4,14 @@ const canvas = document.getElementById('particles-canvas');
 const ctx = canvas.getContext('2d');
 
 const CONFIG = {
-  count: 80,
+  count: 45,
   maxDistance: 120,
   speed: 0.3,
   radius: 1.5,
   color: '74, 222, 128',
 };
 
+const maxDistSq = CONFIG.maxDistance * CONFIG.maxDistance;
 let particles = [];
 
 function resizeCanvas() {
@@ -60,10 +61,10 @@ function drawParticles() {
       const b = particles[j];
       const dx = a.x - b.x;
       const dy = a.y - b.y;
-      const distance = Math.sqrt(dx * dx + dy * dy);
+      const distSq = dx * dx + dy * dy;
 
-      if (distance < CONFIG.maxDistance) {
-        const opacity = 1 - distance / CONFIG.maxDistance;
+      if (distSq < maxDistSq) {
+        const opacity = 1 - Math.sqrt(distSq) / CONFIG.maxDistance;
         ctx.beginPath();
         ctx.moveTo(a.x, a.y);
         ctx.lineTo(b.x, b.y);
@@ -75,15 +76,37 @@ function drawParticles() {
   }
 }
 
+let animationId = null;
+let isHeroVisible = true;
+
 function animate() {
+  if (!isHeroVisible) { animationId = null; return; }
   updateParticles();
   drawParticles();
-  requestAnimationFrame(animate);
+  animationId = requestAnimationFrame(animate);
+}
+
+function startAnimation() {
+  if (!animationId) animationId = requestAnimationFrame(animate);
+}
+
+function stopAnimation() {
+  if (animationId) { cancelAnimationFrame(animationId); animationId = null; }
 }
 
 resizeCanvas();
 initParticles();
-animate();
+startAnimation();
+
+// Pause when hero is off-screen
+const heroSection = document.getElementById('home');
+if (heroSection) {
+  const heroObserver = new IntersectionObserver((entries) => {
+    isHeroVisible = entries[0].isIntersecting;
+    if (isHeroVisible) startAnimation(); else stopAnimation();
+  }, { threshold: 0 });
+  heroObserver.observe(heroSection);
+}
 
 window.addEventListener('resize', () => {
   resizeCanvas();
