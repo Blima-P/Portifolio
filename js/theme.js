@@ -10,7 +10,7 @@ function setTheme(theme) {
 
   // aqui ele atualiza as particulas do inicio de acordo com o tema
   if (typeof updateParticlesColor === 'function') {
-    updateParticlesColor(theme === 'light' ? '43, 107, 224' : '79, 142, 247');
+    updateParticlesColor(theme === 'light' ? '21, 128, 61' : '74, 222, 128');
   }
 }
 

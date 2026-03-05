@@ -99,7 +99,7 @@ if (contactForm) {
     setTimeout(() => {
       submitBtn.textContent = (typeof translations !== 'undefined' && translations[currentLang])
         ? translations[currentLang]['contact.form.sent'] : '✓ Message sent!';
-      submitBtn.style.background = '#22c55e';
+      submitBtn.style.background = '#4ADE80';
       contactForm.reset();
 
       setTimeout(() => {

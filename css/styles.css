@@ -1,14 +1,14 @@
 /* ---- Variáveis globais ---- */
 :root {
-  --color-bg: #0a0a0f;
-  --color-bg-2: #0f0f1a;
-  --color-bg-card: #13131f;
-  --color-border: #1e1e30;
-  --color-accent: #4f8ef7;
-  --color-accent-dark: #2b6be0;
-  --color-accent-glow: rgba(79, 142, 247, 0.3);
-  --color-text: #e8e8f0;
-  --color-text-muted: #7a7a9a;
+  --color-bg: #050505;
+  --color-bg-2: #0A0D0B;
+  --color-bg-card: #0A0D0B;
+  --color-border: #1A1A1A;
+  --color-accent: #4ADE80;
+  --color-accent-dark: #062012;
+  --color-accent-glow: rgba(74, 222, 128, 0.3);
+  --color-text: #FFFFFF;
+  --color-text-muted: #9CA3AF;
   --font-family: 'Inter', sans-serif;
   --font-size-base: 1rem;
   --container-max: 1100px;
@@ -24,11 +24,11 @@
   --color-bg-2: #eaeaf0;
   --color-bg-card: #ffffff;
   --color-border: #d0d0e0;
-  --color-accent: #2b6be0;
-  --color-accent-dark: #1a54c4;
-  --color-accent-glow: rgba(43, 107, 224, 0.2);
+  --color-accent: #15803d;
+  --color-accent-dark: #052e16;
+  --color-accent-glow: rgba(21, 128, 61, 0.2);
   --color-text: #1a1a2e;
-  --color-text-muted: #5a5a7a;
+  --color-text-muted: #4a4a6a;
 }
 
 /* ---- Scroll progress bar ---- */
@@ -148,7 +148,7 @@ body {
 
 /* Classe adicionada pelo JS quando o usuário rola a página */
 .header.scrolled {
-  background: rgba(10, 10, 15, 0.95);
+  background: rgba(5, 5, 5, 0.95);
   backdrop-filter: blur(10px);
   padding: 0.8rem 0;
   border-bottom: 1px solid var(--color-border);
@@ -295,6 +295,20 @@ body {
   font-weight: 900;
   line-height: 1.1;
   margin-bottom: 1rem;
+}
+
+.hero__name-gradient {
+  background: linear-gradient(90deg, #FFFFFF, #7DD3FC);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[data-theme="light"] .hero__name-gradient {
+  background: linear-gradient(90deg, #1a1a2e, #0e4429);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .hero__title {
@@ -458,7 +472,7 @@ body {
 .project-card:hover {
   border-color: var(--color-accent);
   transform: translateY(-4px);
-  box-shadow: 0 10px 30px rgba(79, 142, 247, 0.15);
+  box-shadow: 0 10px 30px rgba(74, 222, 128, 0.15);
 }
 
 .project-card__header { display: flex; justify-content: space-between; align-items: center; }
@@ -500,8 +514,8 @@ body {
   font-size: 0.75rem;
   padding: 0.25rem 0.75rem;
   border-radius: 50px;
-  background: rgba(79, 142, 247, 0.1);
-  border: 1px solid rgba(79, 142, 247, 0.2);
+  background: rgba(74, 222, 128, 0.1);
+  border: 1px solid rgba(74, 222, 128, 0.2);
   color: var(--color-accent);
 }
 

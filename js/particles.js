@@ -8,7 +8,7 @@ const CONFIG = {
   maxDistance: 120,
   speed: 0.3,
   radius: 1.5,
-  color: '79, 142, 247',
+  color: '74, 222, 128',
 };
 
 let particles = [];
