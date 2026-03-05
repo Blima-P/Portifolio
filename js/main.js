@@ -1,17 +1,41 @@
+/* ---- Preloader ---- */
+window.addEventListener('load', () => {
+  const preloader = document.getElementById('preloader');
+  if (preloader) {
+    setTimeout(() => {
+      preloader.classList.add('hidden');
+      setTimeout(() => preloader.remove(), 500);
+    }, 1200);
+  }
+});
+
 /* ---- Header: adiciona fundo ao rolar ---- */
 const header = document.getElementById('header');
 const scrollProgress = document.getElementById('scroll-progress');
 
+let scrollTicking = false;
 window.addEventListener('scroll', () => {
-  header.classList.toggle('scrolled', window.scrollY > 50);
-
-  // Scroll progress bar
-  const scrollTop = window.scrollY;
-  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-  if (docHeight > 0) {
-    scrollProgress.style.transform = `scaleX(${scrollTop / docHeight})`;
+  if (!scrollTicking) {
+    requestAnimationFrame(() => {
+      const scrollY = window.scrollY;
+      
+      // Header background
+      header.classList.toggle('scrolled', scrollY > 50);
+      
+      // Scroll progress bar
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (docHeight > 0) {
+        scrollProgress.style.transform = `scaleX(${scrollY / docHeight})`;
+      }
+      
+      // Scroll-spy
+      updateScrollSpy();
+      
+      scrollTicking = false;
+    });
+    scrollTicking = true;
   }
-});
+}, { passive: true });
 
 /* ---- Menu mobile ---- */
 const navToggle = document.getElementById('nav-toggle');
@@ -55,7 +79,6 @@ function updateScrollSpy() {
   });
 }
 
-window.addEventListener('scroll', updateScrollSpy);
 updateScrollSpy();
 
 /* ---- Intersection Observer: anima elementos ao entrar na viewport ---- */
@@ -82,40 +105,31 @@ const skillObserver = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.skill-card__progress').forEach(bar => skillObserver.observe(bar));
 
-/* ---- Formulário: feedback visual ao enviar ---- */
-const contactForm = document.getElementById('contact-form');
+/* ---- Text reveal animation on section titles ---- */
+document.querySelectorAll('.section__title').forEach(el => {
+  el.classList.add('text-reveal');
+  const titleObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('text-reveal--visible');
+        titleObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  titleObserver.observe(el);
+});
 
-if (contactForm) {
-  contactForm.addEventListener('submit', (event) => {
-    event.preventDefault();
-
-    const submitBtn = contactForm.querySelector('button[type="submit"]');
-    const originalText = submitBtn.textContent;
-
-    submitBtn.textContent = (typeof translations !== 'undefined' && translations[currentLang])
-      ? translations[currentLang]['contact.form.sending'] : 'Sending...';
-    submitBtn.disabled = true;
-
-    setTimeout(() => {
-      submitBtn.textContent = (typeof translations !== 'undefined' && translations[currentLang])
-        ? translations[currentLang]['contact.form.sent'] : '✓ Message sent!';
-      submitBtn.style.background = '#4ADE80';
-      contactForm.reset();
-
-      setTimeout(() => {
-        submitBtn.textContent = originalText;
-        submitBtn.style.background = '';
-        submitBtn.disabled = false;
-      }, 3000);
-    }, 1500);
-  });
-}
-
-/* ---- Adiciona classes de animação aos elementos das seções ---- */
-document.querySelectorAll('.section__title, .section__subtitle').forEach((el, i) => {
-  el.classList.add('animate');
-  if (i % 2 === 1) el.classList.add('animate--delay-1');
-  observer.observe(el);
+document.querySelectorAll('.section__subtitle').forEach(el => {
+  el.classList.add('subtitle-reveal');
+  const subObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('subtitle-reveal--visible');
+        subObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  subObserver.observe(el);
 });
 
 document.querySelectorAll('.project-card').forEach((card, i) => {
@@ -138,3 +152,55 @@ if (form) {
   form.classList.add('animate', 'animate--right');
   observer.observe(form);
 }
+
+/* ---- Animated counters ---- */
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const counters = entry.target.querySelectorAll('.counter__number');
+      counters.forEach(counter => {
+        const target = +counter.dataset.target;
+        const duration = 1500;
+        const step = target / (duration / 16);
+        let current = 0;
+
+        const update = () => {
+          current += step;
+          if (current < target) {
+            counter.textContent = Math.floor(current);
+            requestAnimationFrame(update);
+          } else {
+            counter.textContent = target;
+          }
+        };
+        update();
+      });
+      counterObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+
+const countersSection = document.querySelector('.counters');
+if (countersSection) counterObserver.observe(countersSection);
+
+/* ---- Project filter tabs ---- */
+const filterBtns = document.querySelectorAll('.projects__filter');
+const projectCards = document.querySelectorAll('.project-card');
+
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    const filter = btn.dataset.filter;
+
+    projectCards.forEach(card => {
+      if (filter === 'all' || card.dataset.category.includes(filter)) {
+        card.classList.remove('hidden');
+        card.style.animation = 'fadeInUp 0.4s ease forwards';
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+  });
+});
