@@ -6,16 +6,60 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
     content="Pedro Braga's Portfolio — Fullstack Developer, intern at CAESB, Software Engineering student at UCB." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Pedro Braga | Portfolio" />
+  <meta property="og:description" content="Fullstack Developer, intern at CAESB, Software Engineering student at UCB." />
+  <meta property="og:url" content="https://blima-p.github.io/Portifolio" />
+  <meta property="og:image" content="https://blima-p.github.io/Portifolio/assets/img/og-preview.png" />
+  <meta property="og:locale" content="en" />
+  <meta property="og:locale:alternate" content="pt_BR" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Pedro Braga | Portfolio" />
+  <meta name="twitter:description" content="Fullstack Developer, intern at CAESB, Software Engineering student at UCB." />
+  <meta name="twitter:image" content="https://blima-p.github.io/Portifolio/assets/img/og-preview.png" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
   <title>Pedro Braga | Portfolio</title>
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="css/animations.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap"
     rel="stylesheet" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Pedro Braga de Lima",
+    "jobTitle": "Fullstack Developer",
+    "url": "https://blima-p.github.io/Portifolio",
+    "sameAs": [
+      "https://github.com/Blima-P",
+      "https://www.linkedin.com/in/pedro-braga-de-lima-633717303/"
+    ],
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "Universidade Católica de Brasília"
+    }
+  }
+  </script>
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 
 <body>
 
+  <div class="noise-overlay" aria-hidden="true"></div>
   <div class="scroll-progress" id="scroll-progress"></div>
+
+  <!-- Preloader -->
+  <div class="preloader" id="preloader">
+    <div class="preloader__content">
+      <span class="preloader__logo">PBL</span>
+      <div class="preloader__bar">
+        <div class="preloader__bar-fill"></div>
+      </div>
+    </div>
+  </div>
 
   <header class="header" id="header">
     <nav class="nav container">
@@ -23,8 +67,10 @@
 
       <ul class="nav__list" id="nav-list">
         <li class="nav__item"><a href="#about" class="nav__link" data-i18n="nav.about">About</a></li>
+        <li class="nav__item"><a href="#experience" class="nav__link" data-i18n="nav.experience">Experience</a></li>
         <li class="nav__item"><a href="#projects" class="nav__link" data-i18n="nav.projects">Projects</a></li>
         <li class="nav__item"><a href="#skills" class="nav__link" data-i18n="nav.skills">Skills</a></li>
+        <li class="nav__item"><a href="#certifications" class="nav__link" data-i18n="nav.certifications">Certifications</a></li>
         <li class="nav__item"><a href="#contact" class="nav__link" data-i18n="nav.contact">Contact</a></li>
       </ul>
 
@@ -147,21 +193,80 @@
               </div>
             </div>
 
+            <div class="counters">
+              <div class="counter__item">
+                <span class="counter__number" data-target="5">0</span>
+                <span class="counter__label" data-i18n="counter.projects">Projects</span>
+              </div>
+              <div class="counter__item">
+                <span class="counter__number" data-target="6">0</span>
+                <span class="counter__label" data-i18n="counter.technologies">Technologies</span>
+              </div>
+              <div class="counter__item">
+                <span class="counter__number" data-target="2">0</span>
+                <span class="counter__label" data-i18n="counter.years">Years Coding</span>
+              </div>
+            </div>
+
             <a href="#contact" class="btn btn--primary" data-i18n="about.btn.contact">Get in touch</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- meus projetos ( adicionar mais futuramente ) -->
+    <!-- EXPERIENCE TIMELINE -->
+    <section class="timeline" id="experience">
+      <div class="container">
+        <h2 class="section__title" data-i18n="timeline.title">My <span>Journey</span></h2>
+        <p class="section__subtitle" data-i18n="timeline.subtitle">Where I've been</p>
+
+        <div class="timeline__line">
+          <div class="timeline__item">
+            <div class="timeline__dot"></div>
+            <div class="timeline__card">
+              <span class="timeline__date" data-i18n="timeline.item1.date">2023 — Present</span>
+              <h3 class="timeline__card-title" data-i18n="timeline.item1.title">IT Intern — CAESB</h3>
+              <p class="timeline__card-desc" data-i18n="timeline.item1.desc">Developing and maintaining Fullstack applications with Java, JavaScript, React, XHTML, and Azure services.</p>
+            </div>
+          </div>
+
+          <div class="timeline__item">
+            <div class="timeline__dot"></div>
+            <div class="timeline__card">
+              <span class="timeline__date" data-i18n="timeline.item2.date">2022 — Present</span>
+              <h3 class="timeline__card-title" data-i18n="timeline.item2.title">Software Engineering — UCB</h3>
+              <p class="timeline__card-desc" data-i18n="timeline.item2.desc">Studying Software Engineering at Universidade Católica de Brasília, building a solid foundation in algorithms, architecture, and best practices.</p>
+            </div>
+          </div>
+
+          <div class="timeline__item">
+            <div class="timeline__dot"></div>
+            <div class="timeline__card">
+              <span class="timeline__date" data-i18n="timeline.item3.date">2023</span>
+              <h3 class="timeline__card-title" data-i18n="timeline.item3.title">CAESB Detector — RPA Project</h3>
+              <p class="timeline__card-desc" data-i18n="timeline.item3.desc">Built an automated tool to detect sponsored/fraudulent CAESB ads on Google using Python, PowerShell, and RPA techniques.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- meus projetos( adicionar mais futuramente ) -->
     <section class="projects" id="projects">
       <div class="container">
         <h2 class="section__title" data-i18n="projects.title">My <span>Projects</span></h2>
         <p class="section__subtitle" data-i18n="projects.subtitle">What I've built</p>
 
+        <div class="projects__filters">
+          <button class="projects__filter active" data-filter="all" data-i18n="filter.all">All</button>
+          <button class="projects__filter" data-filter="web" data-i18n="filter.web">Web</button>
+          <button class="projects__filter" data-filter="python" data-i18n="filter.python">Python</button>
+          <button class="projects__filter" data-filter="rpa" data-i18n="filter.rpa">RPA</button>
+        </div>
+
         <div class="projects__grid">
 
-          <article class="project-card">
+          <article class="project-card" data-category="python rpa">
             <div class="project-card__header">
               <span class="project-card__tag">Python · RPA</span>
               <div class="project-card__links">
@@ -188,7 +293,7 @@
             </div>
           </article>
 
-          <article class="project-card">
+          <article class="project-card" data-category="web">
             <div class="project-card__header">
               <span class="project-card__tag">HTML · CSS · JS</span>
               <div class="project-card__links">
@@ -237,13 +342,13 @@
             <span class="skill-card__name">Java</span>
             <div class="skill-card__bar">
               <!-- level de aprendizado marcado pelo % barra de progresso (main.js) -->
-              <div class="skill-card__progress" data-level="75"></div>
+              <div class="skill-card__progress" data-level="90"></div>
             </div>
           </div>
           <div class="skill-card">
             <span class="skill-card__name">JavaScript</span>
             <div class="skill-card__bar">
-              <div class="skill-card__progress" data-level="70"></div>
+              <div class="skill-card__progress" data-level="40"></div>
             </div>
           </div>
           <div class="skill-card">
@@ -255,13 +360,13 @@
           <div class="skill-card">
             <span class="skill-card__name">HTML &amp; CSS</span>
             <div class="skill-card__bar">
-              <div class="skill-card__progress" data-level="75"></div>
+              <div class="skill-card__progress" data-level="90"></div>
             </div>
           </div>
           <div class="skill-card">
             <span class="skill-card__name">Python / RPA / PowerShell</span>
             <div class="skill-card__bar">
-              <div class="skill-card__progress" data-level="70"></div>
+              <div class="skill-card__progress" data-level="30"></div>
             </div>
           </div>
           <div class="skill-card">
@@ -270,6 +375,53 @@
               <div class="skill-card__progress" data-level="60"></div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certifications -->
+    <section class="certifications" id="certifications">
+      <div class="container">
+        <h2 class="section__title" data-i18n="certs.title">Certifications &amp; <span>Badges</span></h2>
+        <p class="section__subtitle" data-i18n="certs.subtitle">Continuous learning</p>
+
+        <div class="certs__grid">
+          <div class="cert-card">
+            <div class="cert-card__icon">🎓</div>
+            <h3 class="cert-card__name" data-i18n="cert1.name">Java Programming</h3>
+            <p class="cert-card__issuer" data-i18n="cert1.issuer">Oracle / Alura</p>
+          </div>
+          <div class="cert-card">
+            <div class="cert-card__icon">☁️</div>
+            <h3 class="cert-card__name" data-i18n="cert2.name">Azure Fundamentals</h3>
+            <p class="cert-card__issuer" data-i18n="cert2.issuer">Microsoft</p>
+          </div>
+          <div class="cert-card">
+            <div class="cert-card__icon">🐍</div>
+            <h3 class="cert-card__name" data-i18n="cert3.name">Python for Data Science</h3>
+            <p class="cert-card__issuer" data-i18n="cert3.issuer">Coursera</p>
+          </div>
+          <div class="cert-card">
+            <div class="cert-card__icon">⚛️</div>
+            <h3 class="cert-card__name" data-i18n="cert4.name">React Development</h3>
+            <p class="cert-card__issuer" data-i18n="cert4.issuer">Rocketseat</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GitHub Activity -->
+    <section class="github" id="github">
+      <div class="container">
+        <h2 class="section__title" data-i18n="github.title">GitHub <span>Activity</span></h2>
+        <p class="section__subtitle" data-i18n="github.subtitle">Open source contributions</p>
+
+        <div class="github__grid" id="github-repos">
+          <div class="github__loading">Loading repositories...</div>
+        </div>
+
+        <div class="github__profile">
+          <a href="https://github.com/Blima-P" target="_blank" class="btn btn--outline" data-i18n="github.viewprofile">View Full Profile</a>
         </div>
       </div>
     </section>
@@ -317,6 +469,46 @@
       </div>
     </section>
 
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+      <div class="container">
+        <h2 class="section__title" data-i18n="test.title">What People <span>Say</span></h2>
+        <p class="section__subtitle" data-i18n="test.subtitle">Feedback & recommendations</p>
+
+        <div class="testimonials__wrapper">
+          <div class="testimonials__track" id="testimonials-track">
+            <div class="testimonial-card">
+              <p class="testimonial-card__text" data-i18n="test1.text">"Pedro is a dedicated developer who always delivers quality work. His passion for learning new technologies is impressive."</p>
+              <div class="testimonial-card__author">
+                <span class="testimonial-card__name" data-i18n="test1.name">Prof. Carlos Silva</span>
+                <span class="testimonial-card__role" data-i18n="test1.role">UCB Professor</span>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <p class="testimonial-card__text" data-i18n="test2.text">"Great team player with strong problem-solving skills. Pedro adapted quickly to our tech stack and contributed meaningfully from day one."</p>
+              <div class="testimonial-card__author">
+                <span class="testimonial-card__name" data-i18n="test2.name">Ana Martins</span>
+                <span class="testimonial-card__role" data-i18n="test2.role">Tech Lead at CAESB</span>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <p class="testimonial-card__text" data-i18n="test3.text">"Working with Pedro on the CAESB Detector project was a great experience. He brings creativity and technical skill to every challenge."</p>
+              <div class="testimonial-card__author">
+                <span class="testimonial-card__name" data-i18n="test3.name">Lucas Ferreira</span>
+                <span class="testimonial-card__role" data-i18n="test3.role">Fellow Developer</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonials__nav">
+            <button class="testimonials__btn testimonials__btn--prev" id="test-prev" aria-label="Previous">←</button>
+            <div class="testimonials__dots" id="test-dots"></div>
+            <button class="testimonials__btn testimonials__btn--next" id="test-next" aria-label="Next">→</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- FOOTER -->
@@ -335,6 +527,14 @@
   <script src="js/theme.js"></script>
   <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/contact.js"></script>
+  <script src="js/testimonials.js"></script>
+  <script src="js/github.js"></script>
+  <script src="js/cursor.js"></script>
+  <script src="js/magnetic.js"></script>
+  <script src="js/parallax.js"></script>
+  <script src="js/page-transitions.js"></script>
+  <script src="js/terminal.js"></script>
 </body>
 
 </html>
