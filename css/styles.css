@@ -31,6 +31,20 @@
   --color-text-muted: #5a5a7a;
 }
 
+/* ---- Scroll progress bar ---- */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background: linear-gradient(90deg, var(--color-accent-dark), var(--color-accent));
+  transform-origin: left;
+  transform: scaleX(0);
+  z-index: 200;
+  pointer-events: none;
+}
+
 /* ---- Reset ---- */
 *,
 *::before,

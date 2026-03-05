@@ -1,8 +1,16 @@
 /* ---- Header: adiciona fundo ao rolar ---- */
 const header = document.getElementById('header');
+const scrollProgress = document.getElementById('scroll-progress');
 
 window.addEventListener('scroll', () => {
   header.classList.toggle('scrolled', window.scrollY > 50);
+
+  // Scroll progress bar
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  if (docHeight > 0) {
+    scrollProgress.style.transform = `scaleX(${scrollTop / docHeight})`;
+  }
 });
 
 /* ---- Menu mobile ---- */

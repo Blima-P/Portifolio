@@ -1,4 +1,4 @@
-/* ---- Swither de tem, claro/escuro ( o usuario pode escolher a partir de um botão) ---- */
+// Swither de tem, claro/escuro ( o usuario pode escolher a partir de um botão) //
 
 const THEME_KEY = 'theme';
 let currentTheme = localStorage.getItem(THEME_KEY) || 'dark';
