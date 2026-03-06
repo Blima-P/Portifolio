@@ -1,15 +1,14 @@
-/* ---- Contact form with EmailJS ---- */
+/* ---- contato com o email ---- */
 
-// Replace these with your actual EmailJS credentials
-const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
-const EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID';
-const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
+const EMAILJS_PUBLIC_KEY = 'IAgf0HfwDEVjTp5BT';
+const EMAILJS_SERVICE_ID = 'service_jikuv3s';
+const EMAILJS_TEMPLATE_ID = 'template_bbcnaw6';
 
 function initContactForm() {
   const form = document.getElementById('contact-form');
   if (!form) return;
 
-  // Initialize EmailJS
+  // EmailJS
   if (typeof emailjs !== 'undefined') {
     emailjs.init(EMAILJS_PUBLIC_KEY);
   }
@@ -26,10 +25,10 @@ function initContactForm() {
     submitBtn.disabled = true;
 
     try {
-      if (typeof emailjs !== 'undefined' && EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY') {
+      if (typeof emailjs !== 'undefined' && EMAILJS_PUBLIC_KEY !== 'IAgf0HfwDEVjTp5BT') {
         await emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form);
       } else {
-        // Fallback: simulate send if EmailJS not configured
+        // aqui é caso o emailJS nao esteja configurado
         await new Promise(resolve => setTimeout(resolve, 1500));
       }
 
