@@ -43,10 +43,6 @@ portfolio
     └── img/
 ```
 
-## Demo
-
-> [Acessar portfólio online](https://blima-p.github.io/Portifolio)
-
 ## Contato
 
 Clique nos cards sociais para entrar em contato:
