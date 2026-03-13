@@ -14,7 +14,7 @@ Landing page pessoal desenvolvida com HTML5, CSS3 e JavaScript puro — sem fram
 - **Menu hamburger** para mobile
 - **Animações de entrada** com Intersection Observer
 - **Barras de habilidade** animadas
-- **Formulário de contato** com feedback visual
+- **Contatos diretos** em cards sociais (Email, GitHub, LinkedIn, Lattes)
 - **Dark theme** com variáveis CSS
 
 ## Tecnologias
@@ -33,12 +33,12 @@ Landing page pessoal desenvolvida com HTML5, CSS3 e JavaScript puro — sem fram
 portfolio
 ├── index.html
 ├── css/
-│   ├── styles.css
-│   └── animations.css
+│   └── styles.css (com animações incluídas)
 ├── js/
 │   ├── main.js
-│   ├── typing.js
-│   └── particles.js
+│   ├── i18n.js (suporte multi-idioma)
+│   ├── contact.js
+│   └── outros...
 └── assets/
     └── img/
 ```
@@ -49,6 +49,9 @@ portfolio
 
 ## Contato
 
-- GitHub: [@Blima-P](https://github.com/Blima-P)
-- LinkedIn: [Pedro Braga de Lima](https://www.linkedin.com/in/pedro-braga-de-lima-633717303/)
-- Email: p1braga.tech@gmail.com
+Clique nos cards sociais para entrar em contato:
+
+- **Email**: pbl0812@gmail.com
+- **GitHub**: [@Blima-P](https://github.com/Blima-P)
+- **LinkedIn**: [Pedro Braga de Lima](https://www.linkedin.com/in/pedro-braga-de-lima-633717303/)
+- **Lattes**: [Currículo Lattes](https://lattes.cnpq.br/7355607472728751)
