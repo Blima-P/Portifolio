@@ -18,7 +18,7 @@
   --radius-lg: 16px;
 }
 
-/* ---- Light theme ---- */
+/* ---- Tema claro ---- */
 [data-theme="light"] {
   --color-bg: #f5f5fa;
   --color-bg-2: #eaeaf0;
@@ -31,7 +31,7 @@
   --color-text-muted: #4a4a6a;
 }
 
-/* ---- Scroll progress bar ---- */
+/* ---- Barra de progresso de scroll ---- */
 .scroll-progress {
   position: fixed;
   top: 0;
@@ -252,7 +252,7 @@ body {
   padding: 4px;
 }
 
-/* Language toggle */
+/* Alternador de idioma */
 .nav__lang {
   font-size: 0.75rem;
   font-weight: 700;
@@ -272,7 +272,7 @@ body {
   color: #fff;
 }
 
-/* Theme toggle */
+/* Alternador de tema */
 .nav__theme {
   display: flex;
   align-items: center;
@@ -499,7 +499,7 @@ body {
 
 .about__data-desc { font-weight: 500; color: var(--color-text); }
 
-/* ---- Counters ---- */
+/* ---- Contadores ---- */
 .counters {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -738,7 +738,7 @@ body {
   letter-spacing: 0.02em;
 }
 
-/* ---- Footer ---- */
+/* ---- Rodapé ---- */
 .footer {
   padding: 2rem 0;
   border-top: 1px solid var(--color-border);
@@ -769,7 +769,7 @@ body {
   transform: translateY(-3px);
 }
 
-/* ---- Timeline ---- */
+/* ---- Linha do Tempo ---- */
 .timeline { padding: var(--section-padding); }
 
 .timeline__line {
@@ -844,7 +844,7 @@ body {
   line-height: 1.7;
 }
 
-/* ---- Certifications ---- */
+/* ---- Certificações ---- */
 .certifications { padding: var(--section-padding); }
 
 .certs__grid {
@@ -884,7 +884,7 @@ body {
   color: var(--color-text-muted);
 }
 
-/* ---- Testimonials ---- */
+/* ---- Depoimentos ---- */
 .testimonials { padding: var(--section-padding); background: var(--color-bg-2); }
 
 .testimonials__wrapper { position: relative; overflow: hidden; }
@@ -962,7 +962,7 @@ body {
 
 .testimonials__dot.active { background: var(--color-accent); }
 
-/* ---- GitHub Activity ---- */
+/* ---- Atividade no GitHub ---- */
 .github { padding: var(--section-padding); background: var(--color-bg-2); }
 
 .github__grid {
@@ -1049,7 +1049,7 @@ body {
   margin-top: 1rem;
 }
 
-/* ---- Noise/Grain Overlay ---- */
+/* ---- Overlay de Ruído/Grão ---- */
 .noise-overlay {
   position: fixed;
   top: 0;
@@ -1070,7 +1070,7 @@ body {
   opacity: 0.025;
 }
 
-/* ---- Cursor Glow ---- */
+/* ---- Brilho do Cursor ---- */
 .cursor-glow {
   position: fixed;
   top: 0;
@@ -1098,7 +1098,7 @@ body {
   background: radial-gradient(circle, rgba(21, 128, 61, 0.3), transparent 70%);
 }
 
-/* ---- Parallax Decorative Shapes ---- */
+/* ---- Formas decorativas com parallax ---- */
 .parallax-container {
   position: fixed;
   top: 0;
@@ -1144,7 +1144,7 @@ body {
   opacity: 0.06;
 }
 
-/* ---- Easter Egg Terminal ---- */
+/* ---- Terminal (Easter Egg) ---- */
 .terminal-overlay {
   position: fixed;
   top: 0;
@@ -1268,7 +1268,7 @@ body {
   caret-color: var(--color-accent);
 }
 
-/* ---- Content Visibility Optimization ---- */
+/* ---- Otimização de Visibilidade de Conteúdo ---- */
 .about,
 .timeline,
 .projects,

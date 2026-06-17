@@ -1,4 +1,6 @@
-// escrita animada no inicio
+'use strict';
+
+// Efeito de digitação animado na seção hero.
 
 const typingTextsMap = {
   en: [
@@ -30,7 +32,7 @@ const typingEl = document.getElementById('typing-text');
 
 function typeText() {
   if (charIndex < typingTexts[textIndex].length) {
-    typingEl.innerHTML += typingTexts[textIndex].charAt(charIndex);
+    typingEl.textContent += typingTexts[textIndex].charAt(charIndex);
     charIndex++;
     typingTimeout = setTimeout(typeText, TYPING_SPEED);
   } else {
@@ -39,8 +41,8 @@ function typeText() {
 }
 
 function eraseText() {
-  if (typingEl.innerHTML.length > 0) {
-    typingEl.innerHTML = typingEl.innerHTML.slice(0, -1);
+  if (typingEl.textContent.length > 0) {
+    typingEl.textContent = typingEl.textContent.slice(0, -1);
     typingTimeout = setTimeout(eraseText, ERASING_SPEED);
   } else {
     textIndex = (textIndex + 1) % typingTexts.length;
@@ -49,13 +51,13 @@ function eraseText() {
   }
 }
 
-// função updatetypinglanguage só é chamada quando tem a alteração de linguagem
+// A função updateTypingLanguage só é chamada quando o idioma é alterado.
 function updateTypingLanguage(lang) {
   clearTimeout(typingTimeout);
   typingTexts = typingTextsMap[lang] || typingTextsMap['en'];
   textIndex = 0;
   charIndex = 0;
-  typingEl.innerHTML = '';
+  typingEl.textContent = '';
   typingTimeout = setTimeout(typeText, PAUSE_BEFORE_NEXT);
 }
 

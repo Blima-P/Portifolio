@@ -1,3 +1,5 @@
+'use strict';
+
 /* ---- Preloader ---- */
 window.addEventListener('load', () => {
   const preloader = document.getElementById('preloader');
@@ -19,18 +21,18 @@ window.addEventListener('scroll', () => {
     requestAnimationFrame(() => {
       const scrollY = window.scrollY;
       
-      // Header background
+      // Fundo do header.
       header.classList.toggle('scrolled', scrollY > 50);
-      
-      // Scroll progress bar
+
+      // Barra de progresso da rolagem.
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
       if (docHeight > 0) {
         scrollProgress.style.transform = `scaleX(${scrollY / docHeight})`;
       }
-      
-      // Scroll-spy
+
+      // Scroll-spy.
       updateScrollSpy();
-      
+
       scrollTicking = false;
     });
     scrollTicking = true;
@@ -39,7 +41,7 @@ window.addEventListener('scroll', () => {
 
 /* ---- Menu mobile ---- */
 const navToggle = document.getElementById('nav-toggle');
-const navList   = document.getElementById('nav-list');
+const navList = document.getElementById('nav-list');
 
 navToggle.addEventListener('click', () => {
   navList.classList.toggle('open');
@@ -68,7 +70,7 @@ function updateScrollSpy() {
   const scrollMid = window.scrollY + window.innerHeight / 3;
 
   sections.forEach(section => {
-    const top    = section.offsetTop;
+    const top = section.offsetTop;
     const bottom = top + section.offsetHeight;
 
     if (scrollMid >= top && scrollMid < bottom) {
@@ -82,7 +84,7 @@ function updateScrollSpy() {
 updateScrollSpy();
 
 /* ---- Intersection Observer: anima elementos ao entrar na viewport ---- */
-const observer = new IntersectionObserver((entries) => {
+const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('animate--visible');
@@ -93,8 +95,8 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.animate').forEach(el => observer.observe(el));
 
-/* ---- Barras de skill: anima ao entrar na viewport ---- */
-const skillObserver = new IntersectionObserver((entries) => {
+/* ---- Barras de skill: animam ao entrar na viewport ---- */
+const skillObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.style.width = entry.target.dataset.level + '%';
@@ -105,7 +107,7 @@ const skillObserver = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.skill-card__progress').forEach(bar => skillObserver.observe(bar));
 
-/* ---- Text reveal animation on section titles ---- */
+/* ---- Animação de revelação de texto nos títulos das seções ---- */
 document.querySelectorAll('.section__title').forEach(el => {
   el.classList.add('text-reveal');
   const titleObserver = new IntersectionObserver((entries) => {
@@ -153,8 +155,8 @@ if (form) {
   observer.observe(form);
 }
 
-/* ---- Animated counters ---- */
-const counterObserver = new IntersectionObserver((entries) => {
+/* ---- Contadores animados ---- */
+const counterObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       const counters = entry.target.querySelectorAll('.counter__number');
@@ -183,7 +185,7 @@ const counterObserver = new IntersectionObserver((entries) => {
 const countersSection = document.querySelector('.counters');
 if (countersSection) counterObserver.observe(countersSection);
 
-/* ---- Project filter tabs ---- */
+/* ---- Filtro de projetos por abas ---- */
 const filterBtns = document.querySelectorAll('.projects__filter');
 const projectCards = document.querySelectorAll('.project-card');
 

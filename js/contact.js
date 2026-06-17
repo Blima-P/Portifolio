@@ -1,3 +1,3 @@
-/* ---- Contact section - Direct links only ---- */
-/* The contact form has been replaced with direct contact links.
-   No additional JavaScript is needed as the links are handled by the browser. */
+/* ---- Seção de contato — links diretos ---- */
+/* O formulário de contato foi substituído por links diretos.
+   Nenhum JavaScript adicional é necessário, pois os links são tratados pelo navegador. */

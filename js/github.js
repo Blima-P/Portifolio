@@ -1,5 +1,5 @@
-/* ---- GitHub API Integration ---- */
-(function() {
+/* ---- Integração com a API do GitHub ---- */
+(function () {
   const GITHUB_USER = 'Blima-P';
   const REPOS_CONTAINER = document.getElementById('github-repos');
   if (!REPOS_CONTAINER) return;

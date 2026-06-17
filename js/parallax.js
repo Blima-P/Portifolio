@@ -1,10 +1,10 @@
-/* ---- Parallax Effects ---- */
-(function() {
-  // Skip on mobile/touch
+/* ---- Efeitos de parallax ---- */
+(function () {
+  // Pula em dispositivos touch e em telas mobile.
   if ('ontouchstart' in window || navigator.maxTouchPoints > 0) return;
   if (window.innerWidth < 768) return;
 
-  // Add parallax decorative shapes
+  // Adiciona formas decorativas de parallax.
   const shapes = [
     { className: 'parallax-shape parallax-shape--1', speed: 0.03 },
     { className: 'parallax-shape parallax-shape--2', speed: -0.02 },
@@ -23,7 +23,7 @@
     return { el, speed: s.speed };
   });
 
-  // Parallax on scroll
+  // Aplica o parallax durante a rolagem.
   let ticking = false;
   window.addEventListener('scroll', () => {
     if (!ticking) {

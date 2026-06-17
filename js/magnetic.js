@@ -1,6 +1,6 @@
-/* ---- Magnetic Buttons ---- */
-(function() {
-  // Skip on touch/mobile
+/* ---- Botões magnéticos ---- */
+(function () {
+  // Pula em dispositivos touch e em telas mobile.
   if ('ontouchstart' in window || navigator.maxTouchPoints > 0) return;
   if (window.innerWidth < 768) return;
 

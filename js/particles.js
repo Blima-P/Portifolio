@@ -1,4 +1,6 @@
-//particulas do inicio
+'use strict';
+
+// Partículas de fundo do hero.
 
 const canvas = document.getElementById('particles-canvas');
 const ctx = canvas.getContext('2d');
@@ -15,14 +17,14 @@ const maxDistSq = CONFIG.maxDistance * CONFIG.maxDistance;
 let particles = [];
 
 function resizeCanvas() {
-  canvas.width  = canvas.offsetWidth;
+  canvas.width = canvas.offsetWidth;
   canvas.height = canvas.offsetHeight;
 }
 
 function createParticle() {
   return {
-    x:  Math.random() * canvas.width,
-    y:  Math.random() * canvas.height,
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
     vx: (Math.random() * 2 - 1) * CONFIG.speed,
     vy: (Math.random() * 2 - 1) * CONFIG.speed,
     radius: CONFIG.radius,
@@ -40,7 +42,7 @@ function updateParticles() {
   particles.forEach(p => {
     p.x += p.vx;
     p.y += p.vy;
-    if (p.x < 0 || p.x > canvas.width)  p.vx *= -1;
+    if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
     if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
   });
 }
@@ -80,7 +82,11 @@ let animationId = null;
 let isHeroVisible = true;
 
 function animate() {
-  if (!isHeroVisible) { animationId = null; return; }
+  if (!isHeroVisible) {
+    animationId = null;
+    return;
+  }
+
   updateParticles();
   drawParticles();
   animationId = requestAnimationFrame(animate);
@@ -91,28 +97,38 @@ function startAnimation() {
 }
 
 function stopAnimation() {
-  if (animationId) { cancelAnimationFrame(animationId); animationId = null; }
+  if (animationId) {
+    cancelAnimationFrame(animationId);
+    animationId = null;
+  }
 }
 
 resizeCanvas();
 initParticles();
 startAnimation();
 
-// Pause when hero is off-screen
+// Pausa quando o hero sai da tela
 const heroSection = document.getElementById('home');
 if (heroSection) {
-  const heroObserver = new IntersectionObserver((entries) => {
+  const heroObserver = new IntersectionObserver(entries => {
     isHeroVisible = entries[0].isIntersecting;
-    if (isHeroVisible) startAnimation(); else stopAnimation();
+    if (isHeroVisible) {
+      startAnimation();
+    } else {
+      stopAnimation();
+    }
   }, { threshold: 0 });
+
   heroObserver.observe(heroSection);
 }
 
+// Redimensiona e reinicializa as partículas ao redimensionar a janela.
 window.addEventListener('resize', () => {
   resizeCanvas();
   initParticles();
 });
 
+// Atualiza a cor das partículas de acordo com o tema.
 function updateParticlesColor(rgb) {
   CONFIG.color = rgb;
 }

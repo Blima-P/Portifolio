@@ -1,5 +1,5 @@
-/* ---- Custom Cursor Glow ---- */
-(function() {
+/* ---- Cursor personalizado com brilho ---- */
+(function () {
   if ('ontouchstart' in window || navigator.maxTouchPoints > 0) return;
   if (window.innerWidth < 768) return;
 
@@ -7,10 +7,11 @@
   glow.classList.add('cursor-glow');
   document.body.appendChild(glow);
 
-  let mouseX = 0, mouseY = 0;
-  let glowX = 0, glowY = 0;
+  let mouseX = 0;
+  let mouseY = 0;
+  let glowX = 0;
+  let glowY = 0;
   let rafId = null;
-  let idleTimer = null;
 
   function animate() {
     glowX += (mouseX - glowX) * 0.15;

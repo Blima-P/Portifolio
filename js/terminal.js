@@ -1,5 +1,5 @@
-/* ---- Easter Egg Terminal ---- */
-(function() {
+/* ---- Terminal (Easter Egg) ---- */
+(function () {
   let isOpen = false;
   let overlay, input, output;
 
@@ -54,7 +54,7 @@
     output = overlay.querySelector('#terminal-output');
     input = overlay.querySelector('#terminal-input');
 
-    input.addEventListener('keydown', (e) => {
+    input.addEventListener('keydown', e => {
       if (e.key === 'Enter') {
         const cmd = input.value.trim().toLowerCase();
         if (cmd) processCommand(cmd);
@@ -63,7 +63,7 @@
     });
 
     overlay.querySelector('.terminal__close').addEventListener('click', closeTerminal);
-    overlay.addEventListener('click', (e) => {
+    overlay.addEventListener('click', e => {
       if (e.target === overlay) closeTerminal();
     });
   }
@@ -113,7 +113,7 @@
     isOpen = false;
   }
 
-  document.addEventListener('keydown', (e) => {
+  document.addEventListener('keydown', e => {
     if (e.ctrlKey && e.key === '`') {
       e.preventDefault();
       isOpen ? closeTerminal() : openTerminal();

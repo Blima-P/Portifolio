@@ -1,5 +1,5 @@
-/* ---- Testimonials Carousel ---- */
-(function() {
+/* ---- Carrossel de Depoimentos ---- */
+(function () {
   const track = document.getElementById('testimonials-track');
   const prevBtn = document.getElementById('test-prev');
   const nextBtn = document.getElementById('test-next');
@@ -11,7 +11,7 @@
   let current = 0;
   let autoplayInterval;
 
-  // Create dots
+  // Cria os pontos de navegação.
   for (let i = 0; i < total; i++) {
     const dot = document.createElement('span');
     dot.classList.add('testimonials__dot');
@@ -28,8 +28,15 @@
     });
   }
 
-  prevBtn.addEventListener('click', () => { goTo(current - 1); resetAutoplay(); });
-  nextBtn.addEventListener('click', () => { goTo(current + 1); resetAutoplay(); });
+  prevBtn.addEventListener('click', () => {
+    goTo(current - 1);
+    resetAutoplay();
+  });
+
+  nextBtn.addEventListener('click', () => {
+    goTo(current + 1);
+    resetAutoplay();
+  });
 
   function startAutoplay() {
     autoplayInterval = setInterval(() => goTo(current + 1), 5000);

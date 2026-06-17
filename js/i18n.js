@@ -1,8 +1,10 @@
-/* ---- i18n — Language switcher ---- */
+'use strict';
+
+/* ---- i18n — Alternador de idioma ---- */
 
 const translations = {
   en: {
-    // Nav
+    // Navegação
     'nav.about': 'About',
     'nav.projects': 'Projects',
     'nav.skills': 'Skills',
@@ -17,7 +19,7 @@ const translations = {
     'hero.btn.contact': 'Get in touch',
     'hero.btn.cv': 'Download CV',
 
-    // About
+    // Sobre
     'about.title': 'About <span>Me</span>',
     'about.subtitle': 'Who am I',
     'about.description': 'Software Engineering student at Universidade Católica de Brasília, with hands-on experience in developing and maintaining Fullstack systems. Currently an IT intern at CAESB, working on improving applications with Java, JavaScript, React, XHTML, and Azure services. I constantly seek to expand my stack and explore different areas of technology to build a broad view of software development.',
@@ -34,11 +36,11 @@ const translations = {
     'counter.technologies': 'Technologies',
     'counter.years': 'Years Coding',
 
-    // Timeline
-    'nav.experience': 'Experiência',
-    'timeline.title': 'Minha <span>Jornada</span>',
-    'timeline.subtitle': 'Por onde passei',
-    'timeline.item1.date': '2025 — Presente',
+    // Linha do tempo
+    'nav.experience': 'Experience',
+    'timeline.title': 'My <span>Journey</span>',
+    'timeline.subtitle': 'Where I\'ve been',
+    'timeline.item1.date': '2025 — Present',
     'timeline.item1.title': 'IT Intern — CAESB',
     'timeline.item1.desc': 'Development and maintenance of full-stack applications using Java, JavaScript, React, XHTML, and Azure services.',
     'timeline.item2.date': '2024 — 2025',
@@ -52,7 +54,7 @@ const translations = {
     'timeline.item4.desc': 'Administrative assistant, customer service, and Excel spreadsheets.',
     
 
-    // Projects
+    // Projetos
     'projects.title': 'My <span>Projects</span>',
     'projects.subtitle': 'What I\'ve built',
     'project1.title': 'CAESB Detector',
@@ -64,7 +66,7 @@ const translations = {
     'filter.python': 'Python',
     'filter.rpa': 'RPA',
 
-    // Certifications
+    // Certificações
     'certs.title': 'Certifications &amp; <span>Badges</span>',
     'certs.subtitle': 'Continuous learning',
     'cert1.name': 'Java Programming',
@@ -82,11 +84,11 @@ const translations = {
     'github.viewprofile': 'View Full Profile',
     'github.error': 'Could not load repositories. Visit my GitHub profile.',
 
-    // Skills
+    // Habilidades
     'skills.title': 'My <span>Skills</span>',
     'skills.subtitle': 'Technologies I use',
 
-    // Contact
+    // Contato
     'contact.title': 'Get in <span>Touch</span>',
     'contact.subtitle': 'Let\'s talk',
     'contact.form.name': 'Name',
@@ -100,7 +102,7 @@ const translations = {
     'contact.form.sent': '✓ Message sent!',
     'contact.form.error': '✗ Error, try again',
 
-    // Testimonials
+    // Depoimentos
     'test.title': 'What People <span>Say</span>',
     'test.subtitle': 'Feedback & recommendations',
     'test1.text': '"Pedro is a dedicated developer who always delivers quality work. His passion for learning new technologies is impressive."',
@@ -113,7 +115,7 @@ const translations = {
     'test3.name': 'Lucas Ferreira',
     'test3.role': 'Fellow Developer',
 
-    // Footer
+    // Rodapé
     'footer.text': 'Built by <span>Pedro Braga</span> with HTML, CSS, and vanilla JavaScript.',
 
     // Meta
@@ -121,7 +123,7 @@ const translations = {
   },
 
   'pt-br': {
-    // Nav
+    // Navegação
     'nav.about': 'Sobre',
     'nav.projects': 'Projetos',
     'nav.skills': 'Skills',
@@ -136,7 +138,7 @@ const translations = {
     'hero.btn.contact': 'Entrar em contato',
     'hero.btn.cv': 'Baixar Currículo',
 
-    // About
+    // Sobre
     'about.title': 'Sobre <span>Mim</span>',
     'about.subtitle': 'Quem sou eu',
     'about.description': 'Estudante de Engenharia de Software na Universidade Católica de Brasília, com experiência prática em desenvolvimento e manutenção de sistemas Fullstack. Atualmente estagiário de TI na CAESB, atuando na melhoria de aplicações com Java, JavaScript, React, XHTML e serviços na Azure. Busco constantemente expandir minha stack e explorar diferentes áreas da tecnologia para construir uma visão ampla do desenvolvimento de software.',
@@ -153,7 +155,7 @@ const translations = {
     'counter.technologies': 'Tecnologias',
     'counter.years': 'Anos Programando',
 
-    // Timeline
+    // Linha do tempo
     'nav.experience': 'Experience',
     'timeline.title': 'Minha <span>Jornada</span>',
     'timeline.subtitle': 'Por onde passei',
@@ -170,7 +172,7 @@ const translations = {
     'timeline.item4.title': 'Jovem aprendiz - Solução Acessoria Vendas/Cobranças',
     'timeline.item4.desc': 'Assistente administrativo, Atendimento ao publico e Planilhas Excel.',
 
-    // Projects
+    // Projetos
     'projects.title': 'Meus <span>Projetos</span>',
     'projects.subtitle': 'O que já construí',
     'project1.title': 'Detector CAESB',
@@ -200,11 +202,11 @@ const translations = {
     'github.viewprofile': 'Ver Perfil Completo',
     'github.error': 'Não foi possível carregar repositórios. Visite meu perfil no GitHub.',
 
-    // Skills
+    // Habilidades
     'skills.title': 'Minhas <span>Skills</span>',
     'skills.subtitle': 'Tecnologias que uso',
 
-    // Contact
+    // Contato
     'contact.title': 'Entre em <span>Contato</span>',
     'contact.subtitle': 'Vamos conversar',
     'contact.form.name': 'Nome',
@@ -231,7 +233,7 @@ const translations = {
     'test3.name': 'Lucas Ferreira',
     'test3.role': 'Desenvolvedor Colega',
 
-    // Footer
+    // Rodapé
     'footer.text': 'Desenvolvido por <span>Pedro Braga</span> com HTML, CSS e JavaScript puro.',
 
     // Meta
@@ -248,12 +250,12 @@ function setLanguage(lang) {
   const dict = translations[lang];
   if (!dict) return;
 
-  // Update all elements with data-i18n
+  // Atualiza todos os elementos com data-i18n.
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
     if (!dict[key]) return;
 
-    // Check for special attribute targets
+    // Verifica atributos especiais de destino.
     const attr = el.getAttribute('data-i18n-attr');
     if (attr) {
       el.setAttribute(attr, dict[key]);
@@ -262,33 +264,33 @@ function setLanguage(lang) {
     }
   });
 
-  // Update <html lang>
+  // Atualiza <html lang>.
   document.documentElement.lang = lang === 'pt-br' ? 'pt-BR' : 'en';
 
-  // Update meta description
+  // Atualiza a meta description.
   const metaDesc = document.querySelector('meta[name="description"]');
   if (metaDesc && dict['meta.description']) {
     metaDesc.setAttribute('content', dict['meta.description']);
   }
 
-  // Update toggle button label (shows the OTHER language)
+  // Atualiza o rótulo do botão para mostrar o outro idioma.
   const toggleBtn = document.getElementById('lang-toggle');
   if (toggleBtn) {
     toggleBtn.textContent = lang === 'en' ? 'PT-BR' : 'EN';
   }
 
-  // Update typing effect if available
+  // Atualiza o efeito de digitação, se disponível.
   if (typeof updateTypingLanguage === 'function') {
     updateTypingLanguage(lang);
   }
 }
 
-// Toggle between languages
+// Alterna entre os idiomas.
 function toggleLanguage() {
   setLanguage(currentLang === 'en' ? 'pt-br' : 'en');
 }
 
-// Initialize on DOM ready
+// Inicializa quando o DOM estiver pronto.
 document.addEventListener('DOMContentLoaded', () => {
   const toggleBtn = document.getElementById('lang-toggle');
   if (toggleBtn) {
